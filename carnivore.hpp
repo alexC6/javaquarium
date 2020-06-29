@@ -8,7 +8,7 @@ class Carnivore : public Poisson {
         Carnivore(const std::string &, const sexe_t &, const std::string &);
         Carnivore(const std::string &, const sexe_t &, const std::string &, const int);
 
-        virtual void eat();
+        virtual void eat() override;
 };
 
 #endif

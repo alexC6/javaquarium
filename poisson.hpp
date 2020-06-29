@@ -12,12 +12,12 @@ typedef enum {
 class Poisson : public Vivant {
     protected:
         std::string name;
-        sexe_t sexe;
+        sexe_t sex;
         std::string species;
 
     public:
-        Poisson(const std::string &, const sexe_t &, const std::string &);
-        Poisson(const std::string &, const sexe_t &, const std::string &, const int);
+        Poisson(const std::string &, sexe_t, const std::string &);
+        Poisson(const std::string &, sexe_t, const std::string &, const int);
 
         virtual ~Poisson() = default;
 
@@ -25,16 +25,16 @@ class Poisson : public Vivant {
         bool operator==(const Poisson &);
 
         std::string getName();
-        std::string getSexe();
+        std::string getSex(int = 0);
         std::string getSpecies();
 
         void setName(const std::string &);
-        void setSexe(const sexe_t &);
+        void setSex(const sexe_t &);
         void setSpecies(const std::string &);
 
         virtual void eat() = 0;
-        virtual void eaten();
-        void evolution();
+        virtual void eaten() override;
+        virtual void evolution() override;
 };
 
 #endif

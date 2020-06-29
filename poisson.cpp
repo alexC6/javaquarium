@@ -1,10 +1,10 @@
 #include "poisson.hpp"
 
-Poisson::Poisson(const std::string &pName, const sexe_t &pSexe, const std::string &pSpecies)
-    : name(pName), sexe(pSexe), species(pSpecies) {}
+Poisson::Poisson(const std::string &pName, sexe_t pSex, const std::string &pSpecies)
+    : name(pName), sex(pSex), species(pSpecies) {}
 
-Poisson::Poisson(const std::string &pName, const sexe_t &pSexe, const std::string &pSpecies, const int pAge)
-    : Vivant(pAge), name(pName), sexe(pSexe), species(pSpecies) {}
+Poisson::Poisson(const std::string &pName, sexe_t pSex, const std::string &pSpecies, const int pAge)
+    : Vivant(pAge), name(pName), sex(pSex), species(pSpecies) {}
 
 bool Poisson::operator!=(const Poisson &other) {
     return (this->species != other.species);
@@ -18,11 +18,17 @@ std::string Poisson::getName() {
     return this->name;
 }
 
-std::string Poisson::getSexe() {
-    if (this->sexe == f) {
-        return "female";
+std::string Poisson::getSex(int otherFish) {
+    std::string fishSpecies = this->species;
+
+    if (((fishSpecies == "Sole") || (fishSpecies == "Poisson clown")) && (otherFish)) {
+        return "herma";
     } else {
-        return "male";
+        if (this->sex == f) {
+            return "female";
+        } else {
+            return "male";
+        }
     }
 }
 
@@ -34,8 +40,8 @@ void Poisson::setName(const std::string &newName) {
     this->name = newName;
 }
 
-void Poisson::setSexe(const sexe_t &newSexe) {
-    this->sexe = newSexe;
+void Poisson::setSex(const sexe_t &newSex) {
+    this->sex = newSex;
 }
 
 void Poisson::setSpecies(const std::string &newSpecies) {
@@ -49,4 +55,12 @@ void Poisson::eaten() {
 void Poisson::evolution() {
     this->PV--;
     this->age++;
+
+    if (this->age > 10) {
+        if (this->sex == f) {
+            this->sex = m;
+        } else {
+            this->sex = f;
+        }
+    }
 }

@@ -8,8 +8,8 @@ class Algue : public Vivant {
         Algue() = default;
         Algue(const int);
 
-        virtual void eaten();
-        virtual void evolution();
+        virtual void eaten() override;
+        virtual void evolution() override;
 };
 
 #endif

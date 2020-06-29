@@ -25,19 +25,19 @@ void Aquarium::addAlgae() {
     this->algaeList.push_back(Algue());
 }
 
-void Aquarium::addFish(const std::string &pName, const sexe_t &pSexe, const std::string &pSpecies) {
+void Aquarium::addFish(const std::string &pName, const sexe_t &pSex, const std::string &pSpecies) {
     if (pSpecies == "Mérou" || pSpecies == "Thon" || pSpecies == "Poisson clown") {
-        this->fishList.push_back(new Carnivore(pName, pSexe, pSpecies));
+        this->fishList.push_back(new Carnivore(pName, pSex, pSpecies));
     } else if (pSpecies == "Bar" || pSpecies == "Sole" || pSpecies == "Carpe") {
-        this->fishList.push_back(new Herbivore(pName, pSexe, pSpecies));
+        this->fishList.push_back(new Herbivore(pName, pSex, pSpecies));
     }
 }
 
-void Aquarium::addFish(const std::string &pName, const sexe_t &pSexe, const std::string &pSpecies, const int pAge) {
+void Aquarium::addFish(const std::string &pName, const sexe_t &pSex, const std::string &pSpecies, const int pAge) {
     if (pSpecies == "Mérou" || pSpecies == "Thon" || pSpecies == "Poisson clown") {
-        this->fishList.push_back(new Carnivore(pName, pSexe, pSpecies, pAge));
+        this->fishList.push_back(new Carnivore(pName, pSex, pSpecies, pAge));
     } else if (pSpecies == "Bar" || pSpecies == "Sole" || pSpecies == "Carpe") {
-        this->fishList.push_back(new Herbivore(pName, pSexe, pSpecies, pAge));
+        this->fishList.push_back(new Herbivore(pName, pSex, pSpecies, pAge));
     }
 }
 
@@ -107,11 +107,14 @@ void Aquarium::computeTour() {
             size_t toMeet = rand() % fishListSize;
             auto otherFish = this->fishList[toMeet];
 
-            if (((*curFish) == (*otherFish)) && (curFish->getSexe() != otherFish->getSexe())) {
-                size_t sexe = toMeet % 2;
+            if ((*curFish == *otherFish) && ((curFish->getSex() != otherFish->getSex()) || (curFish->getSex(1) == "herma"))) {
+                size_t babySex = toMeet % 2;
 
-                this->addFish(std::string(curFish->getName() + "And" + otherFish->getName() + "Baby"),
-                    static_cast<sexe_t>(sexe), curFish->getSpecies());
+                this->addFish(
+                    radioAlphabet[(toMeet + index) % 26],
+                    static_cast<sexe_t>(babySex),
+                    curFish->getSpecies()
+                );
             }
         }
     }
@@ -127,8 +130,8 @@ void Aquarium::displayContent() {
     std::cout << "Poissons : " << std::endl;
 
     for (index = 0; index < fishListSize; index++) {
-        std::cout << "\t" << this->fishList[index]->getName() << ", " << this->fishList[index]->getSexe();
-        std::cout << ", " << this->fishList[index]->getSpecies() << ", ";
+        std::cout << "\t" << this->fishList[index]->getName() << ", ";
+        std::cout << this->fishList[index]->getSpecies() << ", ";
         std::cout << this->fishList[index]->getPV() << std::endl;
     }
 

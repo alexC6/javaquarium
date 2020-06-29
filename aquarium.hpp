@@ -6,6 +6,14 @@
 #include "carnivore.hpp"
 #include "herbivore.hpp"
 
+const std::string radioAlphabet[] = {
+    "alpha", "beta", "charlie", "delta", "echo", "foxtrot",
+    "golf", "hotel", "india", "juliet", "kilo", "lima",
+    "mike", "november", "oscar", "papa", "quebec", "romeo",
+    "sierra", "tango", "uniform", "victor", "whiskey", "xray",
+    "yankee", "zulu"
+};
+
 class Aquarium {
     size_t algaeNbr;
     std::vector<Algue> algaeList;
