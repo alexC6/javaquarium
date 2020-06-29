@@ -6,7 +6,7 @@
 class Algue : public Vivant {
     public:
         Algue() = default;
-        Algue(const int);
+        Algue(int);
 
         virtual void eaten() override;
         virtual void evolution() override;

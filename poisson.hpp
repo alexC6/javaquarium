@@ -17,7 +17,7 @@ class Poisson : public Vivant {
 
     public:
         Poisson(const std::string &, sexe_t, const std::string &);
-        Poisson(const std::string &, sexe_t, const std::string &, const int);
+        Poisson(const std::string &, sexe_t, const std::string &, int);
 
         virtual ~Poisson() = default;
 
@@ -29,7 +29,7 @@ class Poisson : public Vivant {
         std::string getSpecies();
 
         void setName(const std::string &);
-        void setSex(const sexe_t &);
+        void setSex(sexe_t);
         void setSpecies(const std::string &);
 
         virtual void eat() = 0;

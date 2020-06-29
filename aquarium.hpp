@@ -28,8 +28,8 @@ class Aquarium {
         std::vector<Poisson *> getFishes();
 
         void addAlgae();
-        void addFish(const std::string &, const sexe_t &, const std::string &);
-        void addFish(const std::string &, const sexe_t &, const std::string &, const int);
+        void addFish(const std::string &, sexe_t, const std::string &);
+        void addFish(const std::string &, sexe_t, const std::string &, int);
 
         void computeTour();
         void displayContent();

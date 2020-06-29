@@ -1,6 +1,6 @@
 #include "algue.hpp"
 
-Algue::Algue(const int pAge) : Vivant(pAge) {}
+Algue::Algue(int pAge) : Vivant(pAge) {}
 
 void Algue::eaten() {
     this->PV -= 2;

@@ -5,8 +5,8 @@
 
 class Carnivore : public Poisson {
     public:
-        Carnivore(const std::string &, const sexe_t &, const std::string &);
-        Carnivore(const std::string &, const sexe_t &, const std::string &, const int);
+        Carnivore(const std::string &, sexe_t, const std::string &);
+        Carnivore(const std::string &, sexe_t, const std::string &, int);
 
         virtual void eat() override;
 };

@@ -3,7 +3,7 @@
 Poisson::Poisson(const std::string &pName, sexe_t pSex, const std::string &pSpecies)
     : name(pName), sex(pSex), species(pSpecies) {}
 
-Poisson::Poisson(const std::string &pName, sexe_t pSex, const std::string &pSpecies, const int pAge)
+Poisson::Poisson(const std::string &pName, sexe_t pSex, const std::string &pSpecies, int pAge)
     : Vivant(pAge), name(pName), sex(pSex), species(pSpecies) {}
 
 bool Poisson::operator!=(const Poisson &other) {
@@ -40,7 +40,7 @@ void Poisson::setName(const std::string &newName) {
     this->name = newName;
 }
 
-void Poisson::setSex(const sexe_t &newSex) {
+void Poisson::setSex(sexe_t newSex) {
     this->sex = newSex;
 }
 

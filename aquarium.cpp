@@ -25,7 +25,7 @@ void Aquarium::addAlgae() {
     this->algaeList.push_back(Algue());
 }
 
-void Aquarium::addFish(const std::string &pName, const sexe_t &pSex, const std::string &pSpecies) {
+void Aquarium::addFish(const std::string &pName, sexe_t pSex, const std::string &pSpecies) {
     if (pSpecies == "Mérou" || pSpecies == "Thon" || pSpecies == "Poisson clown") {
         this->fishList.push_back(new Carnivore(pName, pSex, pSpecies));
     } else if (pSpecies == "Bar" || pSpecies == "Sole" || pSpecies == "Carpe") {
@@ -33,7 +33,7 @@ void Aquarium::addFish(const std::string &pName, const sexe_t &pSex, const std::
     }
 }
 
-void Aquarium::addFish(const std::string &pName, const sexe_t &pSex, const std::string &pSpecies, const int pAge) {
+void Aquarium::addFish(const std::string &pName, sexe_t pSex, const std::string &pSpecies, int pAge) {
     if (pSpecies == "Mérou" || pSpecies == "Thon" || pSpecies == "Poisson clown") {
         this->fishList.push_back(new Carnivore(pName, pSex, pSpecies, pAge));
     } else if (pSpecies == "Bar" || pSpecies == "Sole" || pSpecies == "Carpe") {

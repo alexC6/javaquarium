@@ -7,7 +7,7 @@ class Vivant {
 
     public:
         Vivant();
-        Vivant(const int);
+        Vivant(int);
 
         virtual ~Vivant() = default;
 

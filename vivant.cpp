@@ -2,7 +2,7 @@
 
 Vivant::Vivant() : PV(10), age(0) {}
 
-Vivant::Vivant(const int pAge) : PV(10), age(pAge) {}
+Vivant::Vivant(int pAge) : PV(10), age(pAge) {}
 
 int Vivant::getPV() {
     return this->PV;
